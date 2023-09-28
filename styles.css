@@ -1,75 +1,187 @@
 html {
     background-color: #020659;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    
 }
+
 body {
     background-color: white;
     max-width: 375px;
     margin: 0 auto;
 }
-h1{
+
+h1 {
     font-size: 1.25em;
     background-color: #020873;
 }
-h2, h3 {
+
+h2,
+h3 {
     font-size: 1em;
 }
-h3{
+
+h3 {
     color: #590242;
 }
-p, dl, dd {
+
+p,
+dl,
+dd {
     font-size: 1em;
 }
-footer p {
-    font-size: .75em;
-}
+
 .linkWrapper {
     background-color: white;
+    margin: 10px 0;
 }
-.linkWrapper a{
+
+.linkWrapper a {
     background-color: #590242;
     color: white;
 }
-.linkWrapper a:hover{
+
+.linkWrapper a:hover {
     background-color: #020659;
 }
-a{
+
+a {
     text-decoration: none;
     margin-left: 1em;
     padding: .5em;
     border-radius: .5em;
 }
-header{
-    background-image: linear-gradient(to right,#030a8c,black);
+
+header {
+    background-image: linear-gradient(to right, #030a8c, black);
     color: white;
 }
-#trendingScroll{
+
+.yourPlaylists {
+    background-color: #0d8dfb;
+}
+
+.curatedPlaylists {
+    background-color: #030a8c;
+}
+
+.scroll {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.trending ::-webkit-scrollbar {
+    width: 15px;
+}
+
+.trending ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px #590242;
+}
+
+.trending ::-webkit-scrollbar-thumb {
+    background: #590242;
+    border-radius: 5px;
+}
+
+.trending ::-webkit-scrollbar-thumb:hover {
+    background: #020659;
+}
+
+.yourPlaylists ::-webkit-scrollbar,
+.curatedPlaylists ::-webkit-scrollbar {
+    width: 15px;
+}
+
+.yourPlaylists ::-webkit-scrollbar-track,
+.curatedPlaylists ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px #020659;
+}
+
+.yourPlaylists ::-webkit-scrollbar-thumb,
+.curatedPlaylists ::-webkit-scrollbar-thumb {
+    background: #020659;
+    border-radius: 5px;
+}
+
+.yourPlaylists ::-webkit-scrollbar-thumb:hover,
+.curatedPlaylists ::-webkit-scrollbar-thumb:hover {
+    background: white;
+}
+
+.yourPlaylists section {
+    background-color: #2699fb;
+    margin: 10px;
+    color: white;
+}
+
+.trending section {
+    margin: 10px;
     color: #590242;
+    position: relative;
 }
-#trendingScroll .song {
-    background-color: lightgray;
+
+.trending dt,
+.trending dd {
+    color: #590242;
+    display: inline;
+    margin: 0;
+    bottom: 250px;
 }
-#yourPlaylists {
-background-color: #0d8dfb;
-color: white;
+
+.trending div {
+    position: absolute;
+    top: 251px;
+    background-color: rgb(255, 255, 255, .75);
+    padding: 5px;
+    height: 50px;
+    width: 350px;
 }
-#yourPlaylists h3{
+
+audio {
+    position: absolute;
+    bottom: 150px;
+    left: 5px;
+    opacity: .75;
+}
+
+.curatedPlaylists section {
+    background-color: #020873;
+    margin: 10px;
+    color: white;
+}
+
+.yourPlaylists dt,
+.curatedPlaylists dt {
+    color: white;
+    font-size: large;
+    text-align: center;
+}
+
+.yourPlaylists dd,
+.curatedPlaylists dd {
+    color: white;
+    text-align: center;
+    margin: auto;
+}
+
+#yourPlaylists h3 {
     background-color: white;
 }
-#yourPlaylists .playlists{
+
+#yourPlaylists .playlists {
     background-color: #2699fb;
 }
-#curatedPlaylists {
-    background-color: #020873;
-    color: white;
-}
+
 #curatedPlaylists .playlists {
     background-color: #030a8c;
 }
+
 #curatedPlaylists h3 {
     background-color: white;
 }
-footer{
+
+footer {
     color: #590242;
+    text-align: center;
+    font-size: .75em;
 }
