@@ -34,6 +34,76 @@ dd {
     font-size: 1em;
 }
 
+ul {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height .2s ease-out;
+}
+
+label span {
+    background-color: #ffffff;
+    display: block;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-out;
+    width: 18px;
+}
+
+label span:before,
+label span:after {
+    background: #ffffff;
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    transition: all .2s ease-out;
+    width: 100%;
+}
+
+label span:before {
+    top: 5px;
+}
+
+label span:after {
+    top: -5px;
+}
+
+input {
+    display: none;
+}
+
+input:checked~ul {
+    max-height: 500px;
+}
+
+input:checked~label span {
+    background: transparent;
+}
+
+input:checked~label span:before {
+    transform: rotate(-45deg);
+}
+
+input:checked~label span:after {
+    transform: rotate(45deg);
+}
+
+input:checked~label:not(.steps) span:before,
+input:checked~label:not(.steps) span:after {
+    top: 0;
+}
+
+.navicon {
+    grid-area: "navicon";
+}
+
+span {
+    height: 30px;
+    top: 15px;
+    left: 15px;
+}
+
+/* menuenld */
 .linkWrapper {
     background-color: white;
     margin: 20px 0;
@@ -55,27 +125,34 @@ dd {
     border-radius: .5em;
 }
 
+#muzakmaker {
+    grid-area: "muzak";
+    position: absolute;
+    top: 0;
+    left: 45%;
+}
+
+li {
+    display: block;
+    text-align: center;
+}
+
 header {
     background-image: linear-gradient(to right, #2104d9, black);
     color: white;
     display: grid;
-    grid-template-rows: 1fr, 1fr, 1fr;
-    /* grid-template-areas: 
-    "nav"
-    "h1"
-    "section"
-    ; */
-}
-
-header h1 {
-    text-align: center;
+    grid-template-areas:
+        "navicon"
+        "genre"
+    ;
 }
 
 nav {
+    grid-area: "nav";
     background-color: #030a8c;
-    /* display: none; */
     grid-row-start: 1;
     grid-row-end: 2;
+    padding: 15px;
 }
 
 li {
@@ -86,19 +163,24 @@ li a {
     color: white;
     text-decoration: none;
 }
-li a:hover{
+
+li a:hover {
     background-color: #590242;
 }
 
 #genre {
+    grid-area: "genre";
     padding-bottom: 10px;
 }
-#genre p{
+
+#genre p {
     margin: auto 10px;
 }
-#genre h2{
+
+#genre h2 {
     margin-left: 10px;
 }
+
 .yourPlaylists {
     background-color: #2699fb;
 }
@@ -302,8 +384,23 @@ footer {
     font-size: .75em;
 }
 
-/* medium */
-@media screen and (min-width:769px) {
+
+/* breakpoint */
+@media screen and (min-width:834px) {
+    nav ul {
+        overflow: visible;
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    label span,
+    input {
+        display: none;
+    }
+
     body {
         background-color: white;
         width: 80%;
@@ -311,19 +408,18 @@ footer {
         margin: 0 auto;
     }
 
-    nav ul{
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-        align-items: center;
+    nav {
+        height: 55px;
         padding: 0;
-        margin: 0;
     }
-    ul li{
+
+    ul li {
         text-align: center;
         width: 50%;
     }
-    #muzakmaker{
-        text-align: left;
+
+    #muzakmaker {
+        position: static;
         width: auto;
     }
 
@@ -332,9 +428,10 @@ footer {
         grid-template-areas: "yourPlaylists curatedPlaylists";
     }
 
-    #trending{
+    #trending {
         padding-top: 10px;
     }
+
     #yourPlaylists {
         grid-area: "yourPlaylists";
     }
@@ -368,5 +465,3 @@ footer {
     }
 
 }
-
-/* medium screen rules */
