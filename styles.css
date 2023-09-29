@@ -93,10 +93,6 @@ input:checked~label:not(.steps) span:after {
     top: 0;
 }
 
-.navicon {
-    grid-area: "navicon";
-}
-
 span {
     height: 30px;
     top: 15px;
@@ -126,7 +122,6 @@ span {
 }
 
 #muzakmaker {
-    grid-area: "muzak";
     position: absolute;
     top: 0;
     left: 45%;
@@ -141,14 +136,9 @@ header {
     background-image: linear-gradient(to right, #2104d9, black);
     color: white;
     display: grid;
-    grid-template-areas:
-        "navicon"
-        "genre"
-    ;
 }
 
 nav {
-    grid-area: "nav";
     background-color: #030a8c;
     grid-row-start: 1;
     grid-row-end: 2;
@@ -169,7 +159,6 @@ li a:hover {
 }
 
 #genre {
-    grid-area: "genre";
     padding-bottom: 10px;
 }
 
